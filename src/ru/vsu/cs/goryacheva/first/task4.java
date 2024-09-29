@@ -21,19 +21,5 @@ package cs.vsu.ru.goryacheva.first;
         }
         return s;
     }
-           /* вариант 2 
-           public static double calc(double n)
-    {
-        double s=0, fc=1;
-        for (int i=1; i<=n; i+=2) {
-            fc*=i;
-            s-=(i+1)/fc;
-        }
-        for (int i=2; i<=n; i+=2) {
-            fc*=i;
-            s+=(i+1)/fc;
-        }
-        return s;
-    }
- */
+
 }
