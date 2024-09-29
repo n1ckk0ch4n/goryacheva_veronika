@@ -11,21 +11,14 @@ package cs.vsu.ru.goryacheva.first;
             double n=scanner.nextDouble();
             System.out.printf ("значение = "+calc(n));
         }
-        public static double calc(double n)
-        {
-            double s=0;
-            for (int i=1; i<=n; i++) {
-                s+=(Math.pow(-1, i)*(i+1))/(factorial(i));
-            }
-            return s;
+         public static double calc(double n)
+    {
+        double s=0, fc=1, st=1;
+        for (int i=1; i<=n; i++) {
+            fc*=i;
+            st*=-1;
+            s+=((st)*(i+1))/fc;
         }
-        public static double factorial(double n)
-        {
-            int k=1;
-            for (int i=1; i<=n; i++)
-            {
-                k*=i;
-            }
-            return k;
-        }
+        return s;
     }
+}
