@@ -20,15 +20,16 @@ public class Main {
         for (int i = 2; i <= n; i++) {
             int st=(i-1)*2+1;
             an*=x*x/((st-1)*st);
-            s1+=an;
             double an1=Math.abs(an);
             if(an1>e){s2+=an;}
             else if(an1>e10){s3+=an;}
+            else  {s1+=an;}
         }
         s3+=s2;
+        s1+=s3;
         System.out.println("сумма n первых = "+s1);
         System.out.println("сумма n первых больше е = "+s2);
         System.out.println("сумма n первых больше е/10 = "+s3);
-        System.out.println(Math.sinh(x));
+        System.out.println("Math.sinh(x) = "+Math.sinh(x));
     }
 }
