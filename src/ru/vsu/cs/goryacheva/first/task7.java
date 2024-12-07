@@ -46,30 +46,39 @@ public class Main {
             System.out.print(array[i]+" ");
         }
     }
-    public static int solution1(int[] arr, int index,int length)
-    {
-        int a = arr[index], b = arr[index+1], s=2;
-        for (int k=index+2; k<length-1; k+=2)
-        {
-            if(a==arr[k] && b==arr[k+1]  && a!=b) s+=2;
-            else break;
-        }
-        return s;
-    }
-    public static void solution(int[] arr, int length)
-    {
+    public static void solution(int[] arr, int length) {
         vyvod(arr, length);
-        int c=0,c1=0,pos=-1, numb=0;
-        for (int i=0; i<length-3; i+=c-1)
-        {
-            c=solution1(arr, i, length);
-            if (c>c1) {c1=c; pos=i;numb=1;}
-            else if(c==c1){
-                numb++;
-                if (numb==2) pos=i;
+        int c = 1, cpr = 0, pos = 0, equal=1;
+        for (int i = 0; i < length - 2; i++) {
+            if (arr[i] == arr[i + 2] && arr[i + 1] != arr[i]) c++;
+            else {
+                if (c == cpr) {
+                   equal++;
+                   if (equal==2)  {
+                       cpr = c;
+                       pos = i - cpr + 1;
+                   }
+                }
+                if (c > cpr) {
+                    equal = 1;
+                    cpr = c;
+                    pos = i - cpr + 1;
+                }
+                c = 1;
             }
         }
-        if (c1<=2) System.out.println("Нет последовательностей");
-        else System.out.println(" Индекс 1-го элемента=" + pos +" Количество элементов=" + c1);
+     // последняя последовательность
+        if (c == cpr) {
+            equal++;
+            if (equal==2)  {
+                cpr = c;
+                pos = length - cpr + 1;
+            }
+        }
+        if (c > cpr) {
+            cpr = c;
+            pos = length - cpr;
+        }
+        if (cpr < 2) System.out.println("Нет последовательностей");
+        else System.out.println(" Индекс 1-го элемента=" + pos + " Количество элементов=" + (cpr + 1));
     }
-}
