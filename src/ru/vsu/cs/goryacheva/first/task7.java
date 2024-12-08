@@ -72,12 +72,12 @@ public class Main {
             equal++;
             if (equal==2)  {
                 cpr = c;
-                pos = length - cpr + 1;
+                pos = length - cpr - 1;
             }
         }
         if (c > cpr) {
             cpr = c;
-            pos = length - cpr;
+            pos = length - cpr - 1;
         }
         if (cpr < 2) System.out.println("Нет последовательностей");
         else System.out.println(" Индекс 1-го элемента=" + pos + " Количество элементов=" + (cpr + 1));
